@@ -9,8 +9,12 @@ reducers should do 3 things:
 const beers = (state, action) => {
   switch (action.type) {
     case 'CERVEZA':
-      return [...state]
+      return [...state];
+    case 'RECEIVE_BEERS':
+      return [...state, ...action.beers];
+    default:
+      return state ? state : [{}];
   }
-}
+};
 
 export default beers
